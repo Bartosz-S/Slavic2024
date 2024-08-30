@@ -15,5 +15,4 @@ Advanced
 
 Maximum
 -Walka przy uciekaniu
--
 
