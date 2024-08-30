@@ -36,7 +36,6 @@ public class EnemyVision : MonoBehaviour
 
         for (int i = 0; i < NumberOfTraces; i++)
         {
-            direction = Quaternion.AngleAxis(angle_step, Vector3.up) * direction;
             trace_end = trace_start + direction * FOVDistance;
 
             if (Physics.Linecast(trace_start, trace_end, out hit_info))
@@ -47,15 +46,19 @@ public class EnemyVision : MonoBehaviour
                     Debug.Log("Hit");
                 }
 
-                VisionMeshVertices[i] = hit_info.point;
+                VisionMeshVertices[i] = gameObject.transform.InverseTransformPoint(hit_info.point);
+                Debug.DrawLine(trace_start, hit_info.point, Color.cyan);
             }
             else
             {
-                VisionMeshVertices[i] = trace_end;
+                Debug.DrawLine(trace_start, trace_end, Color.blue);
+                VisionMeshVertices[i] = gameObject.transform.InverseTransformPoint(trace_end);
             }
+
+            direction = Quaternion.AngleAxis(angle_step, Vector3.up) * direction;
         }
 
-        VisionMeshVertices[NumberOfTraces] = gameObject.transform.position;
+        VisionMeshVertices[NumberOfTraces] = gameObject.transform.InverseTransformPoint(trace_start);
         UpdateMesh();
     }
 
