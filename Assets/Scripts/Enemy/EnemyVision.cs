@@ -47,11 +47,9 @@ public class EnemyVision : MonoBehaviour
                 }
 
                 VisionMeshVertices[i] = gameObject.transform.InverseTransformPoint(hit_info.point);
-                Debug.DrawLine(trace_start, hit_info.point, Color.cyan);
             }
             else
             {
-                Debug.DrawLine(trace_start, trace_end, Color.blue);
                 VisionMeshVertices[i] = gameObject.transform.InverseTransformPoint(trace_end);
             }
 
