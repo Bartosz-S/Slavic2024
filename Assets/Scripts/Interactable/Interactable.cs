@@ -5,8 +5,7 @@ using UnityEngine.Events;
 
 public class Interactable : MonoBehaviour
 {
-    private bool canInteract = true;
-    [SerializeField] private bool isAvailable = true;
+    [SerializeField] public bool isAvailable = true;
     LayerMask PlayerMask;
 
     [SerializeField] private UnityEvent InteractionEvent;
@@ -32,9 +31,13 @@ public class Interactable : MonoBehaviour
 
     private void OnInteracting()
     {
-        if (canInteract)
+        
+        if (isAvailable)
         {
             Debug.Log("Found!");
+            InteractionEvent.Invoke();
         }
     }
+
+    
 }
