@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(MeshFilter))]
+[RequireComponent(typeof(MeshRenderer))]
 public class EnemyVision : MonoBehaviour
 {
     [SerializeField] public UnityEvent PlayerDetected;
@@ -9,7 +10,7 @@ public class EnemyVision : MonoBehaviour
     [SerializeField] private LayerMask PlayerLayer;
     [SerializeField] private float FOVAngle = 90;
     [SerializeField] private float FOVDistance = 5;
-    [SerializeField] private int NumberOfTraces = 10;
+    [SerializeField] private int NumberOfTraces = 20;
 
     private Mesh VisionMesh;
     private Vector3[] VisionMeshVertices;
@@ -43,6 +44,8 @@ public class EnemyVision : MonoBehaviour
                 if (IsPlayer(hit_info.collider.gameObject))
                 {
                     PlayerDetected.Invoke();
+
+                    // TODO: delete this
                     Debug.Log("Hit");
                 }
 
