@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class PlayerInputManager : MonoBehaviour
@@ -9,7 +10,8 @@ public class PlayerInputManager : MonoBehaviour
 
     [SerializeField] private float movementSpeed;
     [SerializeField] private Rigidbody rbody;
-    
+
+    public UnityEvent PlayerInteract = new UnityEvent();
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +37,7 @@ public class PlayerInputManager : MonoBehaviour
     private void OnInteraction(InputAction.CallbackContext context)
     {
         Debug.Log("Looking for something!");
+        PlayerInteract.Invoke();
     }
    
     private void Move()
