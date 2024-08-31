@@ -9,16 +9,20 @@ public class Interactable : MonoBehaviour
     LayerMask PlayerMask;
 
     [SerializeField] private UnityEvent InteractionEvent;
+    [SerializeField] private UnityEvent OnPlayerLeave = new UnityEvent();
+    [SerializeField] private UnityEvent OnPlayerEnter = new UnityEvent();
 
     private void Start()
     {
         PlayerMask = LayerMask.GetMask("Player");
+
     }
     private void OnTriggerEnter(Collider other)
     {
         if((PlayerMask & (1 << other.gameObject.layer)) != 0)
         {
             other.gameObject.GetComponent<PlayerInputManager>().PlayerInteract.AddListener(OnInteracting);
+            OnPlayerEnter.Invoke();
         }
     }
     private void OnTriggerExit(Collider other)
@@ -26,18 +30,17 @@ public class Interactable : MonoBehaviour
         if ((PlayerMask & (1 << other.gameObject.layer)) != 0)
         {
             other.gameObject.GetComponent<PlayerInputManager>().PlayerInteract.RemoveListener(OnInteracting);
+            OnPlayerLeave.Invoke();
         }
     }
 
     private void OnInteracting()
     {
-        
         if (isAvailable)
         {
             Debug.Log("Found!");
             InteractionEvent.Invoke();
         }
     }
-
     
 }
