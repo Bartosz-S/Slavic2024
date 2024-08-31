@@ -144,11 +144,67 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6352e38cce83966418ef5c90504d3624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Aggressive: 0
   agent: {fileID: 3796678702087577214}
   patrollingStoppingDistance: 1
   chasingStoppingDistance: 3
-  defaulState: 1
+  defaulState: 0
   patrollingTargets: []
+  IdleRotationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: -0.000003941357
+      inSlope: 1.653806
+      outSlope: 1.653806
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.332895
+    - serializedVersion: 3
+      time: 0.75
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1.5
+      value: 0
+      inSlope: -1.9572996
+      outSlope: -1.9572996
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.2210377
+    - serializedVersion: 3
+      time: 2.25
+      value: -1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 3
+      value: 0
+      inSlope: 1.9323881
+      outSlope: 1.9323881
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.25046572
+      outWeight: 0
+    m_PreInfinity: 1
+    m_PostInfinity: 1
+    m_RotationOrder: 4
+  MaxIdleRotation: 30
+  IdleDuration: 3
+  speedAggressive: 10
+  defaultSpeed: 3.5
 --- !u!1 &3243339421591341237
 GameObject:
   m_ObjectHideFlags: 0

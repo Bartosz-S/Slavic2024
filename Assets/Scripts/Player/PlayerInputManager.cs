@@ -39,11 +39,12 @@ public class PlayerInputManager : MonoBehaviour
         Debug.Log("Looking for something!");
         PlayerInteract.Invoke();
     }
-   
+
     private void Move()
     {
         Vector2 direction = controls.Player.Move.ReadValue<Vector2>().normalized;
         Vector3 direction3D = new Vector3(direction.x, 0, direction.y);
-        rbody.position += direction3D * movementSpeed * Time.deltaTime;
+        rbody.velocity = direction3D * movementSpeed;
+        
     }
 }
