@@ -21,10 +21,12 @@ public class EnemyNavigation : MonoBehaviour
     {
         idle = 0,
         patrolling = 1,
-        chasing = 2,
+        alarmed = 2,
     }
     [SerializeField] private State defaulState;
     [SerializeField] private List<Transform> patrollingTargets = new List<Transform>();
+    [SerializeField] private List<Transform> patrollingTargetsOnAlarm = new List<Transform>();
+    private List<Transform> currentTargets;
 
     [SerializeField] private AnimationCurve IdleRotationCurve;
     [SerializeField] private float MaxIdleRotation;
@@ -50,6 +52,8 @@ public class EnemyNavigation : MonoBehaviour
         agent.speed = Aggressive ? SpeedAggressive : DefaultSpeed;
         agent.acceleration = Aggressive ? AccelerationAggressive : DefaultAcceleration;
         agent.angularSpeed = Aggressive ? AngularSpeedAggressive : DefaultAngularSpeed;
+        currentTargets = Aggressive ? patrollingTargetsOnAlarm : patrollingTargets;
+        currentTargetIndex = 0;
     }
 
     private void Start()
@@ -82,7 +86,7 @@ public class EnemyNavigation : MonoBehaviour
                         StartIdle();
                 }
                 break;
-            case State.chasing:
+            case State.alarmed:
                 if (agent.remainingDistance <= chasingStoppingDistance)
                 {
                     StartIdle();
@@ -94,17 +98,17 @@ public class EnemyNavigation : MonoBehaviour
     {
         agent.SetDestination(_player.transform.position);
         agent.stoppingDistance = chasingStoppingDistance;
-        currentState = State.chasing;
+        currentState = State.alarmed;
     }
     public void GoToNextPatrolLocation()
     {
-        if (patrollingTargets.Count <= 0)
+        if (currentTargets.Count <= 0)
         {
             return;
         }
         agent.stoppingDistance = patrollingStoppingDistance;
-        currentTargetIndex = (currentTargetIndex + 1) % patrollingTargets.Count;
-        agent.SetDestination(patrollingTargets[currentTargetIndex].position);
+        currentTargetIndex = (currentTargetIndex + 1) % currentTargets.Count;
+        agent.SetDestination(currentTargets[currentTargetIndex].position);
     }
     private void IdleRotationUpdate(float time)
     {
@@ -134,7 +138,7 @@ public class EnemyNavigation : MonoBehaviour
             case State.patrolling:
                 StartPatroling();
                 break;
-            case State.chasing:
+            case State.alarmed:
                 GoToAlarm();
                 break;
             default:
