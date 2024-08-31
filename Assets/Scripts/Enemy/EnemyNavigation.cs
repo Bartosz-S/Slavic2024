@@ -11,7 +11,7 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class EnemyNavigation : MonoBehaviour
 {
-    [SerializeField] private bool Agresive = false;
+    [SerializeField] private bool Aggressive = false;
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private float patrollingStoppingDistance;
     [SerializeField] private float chasingStoppingDistance;
@@ -29,6 +29,8 @@ public class EnemyNavigation : MonoBehaviour
     [SerializeField] private AnimationCurve IdleRotationCurve;
     [SerializeField] private float MaxIdleRotation;
     [SerializeField] private float IdleDuration;
+    [SerializeField] private float speedAggressive;
+    [SerializeField] private float defaultSpeed;
 
     private float CurrentIdleTime = 0.0f;
     private Quaternion StartIdleRotation;
@@ -38,15 +40,17 @@ public class EnemyNavigation : MonoBehaviour
 
     private GameObject _player;
 
-    public void SetAgresive(bool newAgressive)
+    public void SetAggressive(bool newAggressive)
     {
-        Agresive = newAgressive;
+        Aggressive = newAggressive;
+        agent.speed = Aggressive ? speedAggressive : defaultSpeed;
     }
 
     private void Start()
     {
         _player = GameObject.FindGameObjectWithTag("Player");
         SetDefaultState();
+        SetAggressive(Aggressive);
     }
     private void FixedUpdate()
     {
@@ -66,7 +70,7 @@ public class EnemyNavigation : MonoBehaviour
             case State.patrolling:
                 if (agent.remainingDistance <= patrollingStoppingDistance)
                 {
-                    if (Agresive)
+                    if (Aggressive)
                         GoToNextPatrolLocation();
                     else
                         StartIdle();

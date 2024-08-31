@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6352e38cce83966418ef5c90504d3624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Agresive: 0
+  Aggressive: 0
   agent: {fileID: 3796678702087577214}
   patrollingStoppingDistance: 1
   chasingStoppingDistance: 3
@@ -203,6 +203,8 @@ MonoBehaviour:
     m_RotationOrder: 4
   MaxIdleRotation: 30
   IdleDuration: 3
+  speedAggressive: 10
+  defaultSpeed: 3.5
 --- !u!1 &3243339421591341237
 GameObject:
   m_ObjectHideFlags: 0
