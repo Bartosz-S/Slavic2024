@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 using UnityEngine.InputSystem.Android;
 using UnityEngine.SceneManagement;
 using static UnityEditor.Experimental.GraphView.GraphView;
@@ -38,6 +39,10 @@ public class EnemyNavigation : MonoBehaviour
     [SerializeField] private float AngularSpeedAggressive;
     [SerializeField] private float DefaultAngularSpeed;
 
+    [HideInInspector] public UnityEvent<bool> AggressiveSet = new UnityEvent<bool>();
+    [HideInInspector] public UnityEvent StartWalking = new UnityEvent();
+    [HideInInspector] public UnityEvent StartStanding = new UnityEvent();
+
     private float CurrentIdleTime = 0.0f;
     private Quaternion StartIdleRotation;
 
@@ -54,6 +59,8 @@ public class EnemyNavigation : MonoBehaviour
         agent.angularSpeed = Aggressive ? AngularSpeedAggressive : DefaultAngularSpeed;
         currentTargets = Aggressive ? patrollingTargetsOnAlarm : patrollingTargets;
         currentTargetIndex = 0;
+
+        AggressiveSet.Invoke(Aggressive);
     }
 
     private void Start()
@@ -99,6 +106,8 @@ public class EnemyNavigation : MonoBehaviour
         agent.SetDestination(_player.transform.position);
         agent.stoppingDistance = chasingStoppingDistance;
         currentState = State.alarmed;
+
+        StartWalking.Invoke();
     }
     public void GoToNextPatrolLocation()
     {
@@ -119,6 +128,8 @@ public class EnemyNavigation : MonoBehaviour
     {
         currentState = State.patrolling;
         GoToNextPatrolLocation();
+
+        StartWalking.Invoke();
     }
 
     private void StartIdle()
@@ -126,6 +137,8 @@ public class EnemyNavigation : MonoBehaviour
         StartIdleRotation = gameObject.transform.rotation;
         currentState = State.idle;
         CurrentIdleTime = 0.0f;
+
+        StartStanding.Invoke();
     }
 
     private void SetDefaultState()
