@@ -1649,6 +1649,26 @@ PrefabInstance:
       propertyPath: patrollingTargets.Array.data[1]
       value: 
       objectReference: {fileID: 1492849602}
+    - target: {fileID: 2992285663872403796, guid: 9c440ae80aff340439cc8510609724aa,
+        type: 3}
+      propertyPath: patrollingTargetsOnAlarm.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992285663872403796, guid: 9c440ae80aff340439cc8510609724aa,
+        type: 3}
+      propertyPath: patrollingTargetsOnAlarm.Array.data[0]
+      value: 
+      objectReference: {fileID: 1936121005}
+    - target: {fileID: 2992285663872403796, guid: 9c440ae80aff340439cc8510609724aa,
+        type: 3}
+      propertyPath: patrollingTargetsOnAlarm.Array.data[1]
+      value: 
+      objectReference: {fileID: 1492849602}
+    - target: {fileID: 2992285663872403796, guid: 9c440ae80aff340439cc8510609724aa,
+        type: 3}
+      propertyPath: patrollingTargetsOnAlarm.Array.data[2]
+      value: 
+      objectReference: {fileID: 1106046381}
     - target: {fileID: 8681062875883531333, guid: 9c440ae80aff340439cc8510609724aa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1716,6 +1736,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6352e38cce83966418ef5c90504d3624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1106046381 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5802391049029724788, guid: 630d37212aa4cf3419885d0a342d7716,
+    type: 3}
+  m_PrefabInstance: {fileID: 800338937}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1265596055
 GameObject:
   m_ObjectHideFlags: 0
