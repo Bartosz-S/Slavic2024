@@ -760,8 +760,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 734478906}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.3993132, y: -0.01145733, z: 0.004990635, w: 0.91672945}
-  m_LocalPosition: {x: -0.14144564, y: 21.999554, z: -21.811749}
+  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
+  m_LocalPosition: {x: -0.64144564, y: 14.63169, z: -15.953886}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -954,8 +954,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 754727771}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.3993132, y: -0.01145733, z: 0.004990635, w: 0.91672945}
-  m_LocalPosition: {x: -0.14144564, y: 21.999554, z: -21.811749}
+  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
+  m_LocalPosition: {x: -0.64144564, y: 14.63169, z: -15.953886}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1244,7 +1244,7 @@ PrefabInstance:
     - target: {fileID: 361556711657641552, guid: 630d37212aa4cf3419885d0a342d7716,
         type: 3}
       propertyPath: InteractionEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 361556711657641552, guid: 630d37212aa4cf3419885d0a342d7716,
         type: 3}
@@ -1254,7 +1254,7 @@ PrefabInstance:
     - target: {fileID: 361556711657641552, guid: 630d37212aa4cf3419885d0a342d7716,
         type: 3}
       propertyPath: InteractionEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 361556711657641552, guid: 630d37212aa4cf3419885d0a342d7716,
         type: 3}
@@ -1265,12 +1265,12 @@ PrefabInstance:
         type: 3}
       propertyPath: InteractionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1025498068}
     - target: {fileID: 361556711657641552, guid: 630d37212aa4cf3419885d0a342d7716,
         type: 3}
       propertyPath: InteractionEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1025498068}
     - target: {fileID: 361556711657641552, guid: 630d37212aa4cf3419885d0a342d7716,
         type: 3}
       propertyPath: InteractionEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Target
@@ -1299,7 +1299,7 @@ PrefabInstance:
     - target: {fileID: 361556711657641552, guid: 630d37212aa4cf3419885d0a342d7716,
         type: 3}
       propertyPath: InteractionEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: GoToAlarm
+      value: SetAggressive
       objectReference: {fileID: 0}
     - target: {fileID: 361556711657641552, guid: 630d37212aa4cf3419885d0a342d7716,
         type: 3}
@@ -1320,6 +1320,11 @@ PrefabInstance:
         type: 3}
       propertyPath: InteractionEvent.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
       value: EnemyNavigation, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 361556711657641552, guid: 630d37212aa4cf3419885d0a342d7716,
+        type: 3}
+      propertyPath: InteractionEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 361556711657641552, guid: 630d37212aa4cf3419885d0a342d7716,
         type: 3}
@@ -1489,6 +1494,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c440ae80aff340439cc8510609724aa, type: 3}
+--- !u!114 &1025498068 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2992285663872403796, guid: 9c440ae80aff340439cc8510609724aa,
+    type: 3}
+  m_PrefabInstance: {fileID: 863982838}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6352e38cce83966418ef5c90504d3624, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1265596055
 GameObject:
   m_ObjectHideFlags: 0
@@ -1642,7 +1659,6 @@ GameObject:
   - component: {fileID: 1876317833}
   - component: {fileID: 1876317834}
   - component: {fileID: 1876317835}
-  - component: {fileID: 1876317836}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -1686,33 +1702,40 @@ MonoBehaviour:
   m_GameObject: {fileID: 1876317832}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd6043bde05a7fc4cba197d06915c1e3, type: 3}
+  m_Script: {fileID: 11500000, guid: 6ad980451443d70438faac0bc6c235a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damping: {x: 0.1, y: 0.5, z: 0.3}
-  ShoulderOffset: {x: 0.5, y: 1.51, z: 0}
-  VerticalArmLength: 20
-  CameraSide: 1
-  CameraDistance: 20
-  CameraCollisionFilter:
-    serializedVersion: 2
-    m_Bits: 0
-  IgnoreTag: 
-  CameraRadius: 0.2
-  DampingIntoCollision: 0
-  DampingFromCollision: 2
---- !u!114 &1876317836
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1876317832}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e8b78ac948f05a46a6d8339a503172b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_TrackedObjectOffset: {x: 0, y: 0, z: 0}
+  m_LookaheadTime: 0
+  m_LookaheadSmoothing: 0
+  m_LookaheadIgnoreY: 0
+  m_XDamping: 1
+  m_YDamping: 1
+  m_ZDamping: 1
+  m_TargetMovementOnly: 1
+  m_ScreenX: 0.5
+  m_ScreenY: 0.5
+  m_CameraDistance: 20
+  m_DeadZoneWidth: 0
+  m_DeadZoneHeight: 0
+  m_DeadZoneDepth: 0
+  m_UnlimitedSoftZone: 0
+  m_SoftZoneWidth: 0.8
+  m_SoftZoneHeight: 0.8
+  m_BiasX: 0
+  m_BiasY: 0
+  m_CenterOnActivate: 1
+  m_GroupFramingMode: 2
+  m_AdjustmentMode: 0
+  m_GroupFramingSize: 0.8
+  m_MaxDollyIn: 5000
+  m_MaxDollyOut: 5000
+  m_MinimumDistance: 1
+  m_MaximumDistance: 5000
+  m_MinimumFOV: 3
+  m_MaximumFOV: 60
+  m_MinimumOrthoSize: 1
+  m_MaximumOrthoSize: 5000
 --- !u!1 &1904522621
 GameObject:
   m_ObjectHideFlags: 0

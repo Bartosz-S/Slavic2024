@@ -29,8 +29,12 @@ public class EnemyNavigation : MonoBehaviour
     [SerializeField] private AnimationCurve IdleRotationCurve;
     [SerializeField] private float MaxIdleRotation;
     [SerializeField] private float IdleDuration;
-    [SerializeField] private float speedAggressive;
-    [SerializeField] private float defaultSpeed;
+    [SerializeField] private float SpeedAggressive;
+    [SerializeField] private float DefaultSpeed;
+    [SerializeField] private float AccelerationAggressive;
+    [SerializeField] private float DefaultAcceleration;
+    [SerializeField] private float AngularSpeedAggressive;
+    [SerializeField] private float DefaultAngularSpeed;
 
     private float CurrentIdleTime = 0.0f;
     private Quaternion StartIdleRotation;
@@ -43,7 +47,9 @@ public class EnemyNavigation : MonoBehaviour
     public void SetAggressive(bool newAggressive)
     {
         Aggressive = newAggressive;
-        agent.speed = Aggressive ? speedAggressive : defaultSpeed;
+        agent.speed = Aggressive ? SpeedAggressive : DefaultSpeed;
+        agent.acceleration = Aggressive ? AccelerationAggressive : DefaultAcceleration;
+        agent.angularSpeed = Aggressive ? AngularSpeedAggressive : DefaultAngularSpeed;
     }
 
     private void Start()

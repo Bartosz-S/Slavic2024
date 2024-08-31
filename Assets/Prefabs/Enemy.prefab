@@ -203,8 +203,12 @@ MonoBehaviour:
     m_RotationOrder: 4
   MaxIdleRotation: 30
   IdleDuration: 3
-  speedAggressive: 10
-  defaultSpeed: 3.5
+  SpeedAggressive: 6
+  DefaultSpeed: 3.5
+  AccelerationAggressive: 16
+  DefaultAcceleration: 8
+  AngularSpeedAggressive: 200
+  DefaultAngularSpeed: 120
 --- !u!1 &3243339421591341237
 GameObject:
   m_ObjectHideFlags: 0
