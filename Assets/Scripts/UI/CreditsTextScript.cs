@@ -7,15 +7,14 @@ public class CreditsSceneScript : MonoBehaviour
 {
     [SerializeField] private TMP_Text creditsText;
     [SerializeField] private float creditsMoveSpeed;
-    private MeshRenderer creditsRenderer;
 
     private void Start()
     {
-        creditsRenderer = creditsText.GetComponent<MeshRenderer>();
+
     }
     private void FixedUpdate()
     {
-
         creditsText.transform.position += Vector3.up * creditsMoveSpeed * Time.fixedDeltaTime;
+
     }
 }
