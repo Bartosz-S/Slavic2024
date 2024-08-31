@@ -5,12 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/BartokScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: b7ff4af4fd1766b4dace2a89aa06c159
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 6465ccba901834d4299fe9940c74ee65
   - enabled: 1
     path: Assets/Scenes/BartokTest.unity
     guid: 56f2f705419d8184fbc40eaf19257e8d

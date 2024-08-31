@@ -85,7 +85,7 @@ public class EnemyNavigation : MonoBehaviour
             case State.chasing:
                 if (agent.remainingDistance <= chasingStoppingDistance)
                 {
-                    StartPatroling();
+                    StartIdle();
                 }
                 break;
         }

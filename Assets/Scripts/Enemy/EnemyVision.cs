@@ -44,9 +44,6 @@ public class EnemyVision : MonoBehaviour
                 if (IsPlayer(hit_info.collider.gameObject))
                 {
                     PlayerDetected.Invoke();
-
-                    // TODO: delete this
-                    Debug.Log("Hit");
                 }
 
                 VisionMeshVertices[i] = gameObject.transform.InverseTransformPoint(hit_info.point);
