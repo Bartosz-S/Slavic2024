@@ -7,10 +7,12 @@ using UnityEngine.SceneManagement;
 public class MainMenuManager : MonoBehaviour
 {
     [SerializeField]
-    private string m_SceneName;
+    private string mainGameScene;
+    [SerializeField]
+    private string creditsScene;
     public void StartNewGame()
     {
-        SceneManager.LoadScene(m_SceneName);
+        SceneManager.LoadScene(mainGameScene);
     }
     public void ResumeGame()
     {
@@ -22,6 +24,6 @@ public class MainMenuManager : MonoBehaviour
     }
     public void GameCredits()
     {
-
+        SceneManager.LoadScene(creditsScene);
     }
 }
