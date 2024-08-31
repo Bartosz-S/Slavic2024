@@ -10,6 +10,7 @@ public class PlayerInputManager : MonoBehaviour
 
     [SerializeField] private float movementSpeed;
     [SerializeField] private Rigidbody rbody;
+    [SerializeField] private Camera MainCamera;
 
     public UnityEvent PlayerInteract = new UnityEvent();
 
@@ -42,8 +43,11 @@ public class PlayerInputManager : MonoBehaviour
 
     private void Move()
     {
+        Vector3 RightVector = MainCamera.transform.right;
+        Vector3 ForwardVector = Vector3.Cross(Vector3.up, RightVector).normalized;
+
         Vector2 direction = controls.Player.Move.ReadValue<Vector2>().normalized;
-        Vector3 direction3D = new Vector3(direction.x, 0, direction.y);
+        Vector3 direction3D = (ForwardVector * -direction.y + RightVector * direction.x).normalized;
         rbody.velocity = direction3D * movementSpeed;
         
     }
