@@ -46,7 +46,6 @@ public class Interactable : MonoBehaviour
     {
         if (isAvailable)
         {
-            Debug.Log("Found!");
             InteractionEvent.Invoke();
         }
     }

@@ -10,6 +10,4 @@ public class PatrollingTargetScript : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawSphere(transform.position, radius);
     }
-
-
 }
