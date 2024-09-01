@@ -5,7 +5,8 @@ using UnityEngine.Events;
 [RequireComponent(typeof(MeshRenderer))]
 public class EnemyVision : MonoBehaviour
 {
-    [SerializeField] public UnityEvent PlayerDetected;
+    // PlayerDetected(float distance), distance [0,1]
+    [SerializeField] public UnityEvent<float> PlayerDetected;
     [SerializeField] private bool Active = true;
 
     [SerializeField] private LayerMask PlayerLayer;
@@ -60,7 +61,7 @@ public class EnemyVision : MonoBehaviour
             {
                 if (IsPlayer(hit_info.collider.gameObject))
                 {
-                    PlayerDetected.Invoke();
+                    PlayerDetected.Invoke(hit_info.distance/FOVDistance);
                 }
 
                 VisionMeshVertices[i] = gameObject.transform.InverseTransformPoint(hit_info.point);
