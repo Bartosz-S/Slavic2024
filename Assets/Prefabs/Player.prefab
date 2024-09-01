@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6370606316562802975}
   - component: {fileID: 4246497234539570575}
   - component: {fileID: 8870539629297577894}
+  - component: {fileID: 4125848909216797723}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -99,9 +100,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 10
   rbody: {fileID: 4246497234539570575}
+  MainCamera: {fileID: 0}
   PlayerInteract:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4125848909216797723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 173994884893109290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8185b749dd40aa740bad2a2b421fd549, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WalkingSpeedThreshold: 0.1
+  PlayerMeshTransform: {fileID: 4668362662677224500}
 --- !u!1001 &5135196931893492703
 PrefabInstance:
   m_ObjectHideFlags: 0
