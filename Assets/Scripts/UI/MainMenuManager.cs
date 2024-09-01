@@ -14,14 +14,12 @@ public class MainMenuManager : MonoBehaviour
     {
         SceneManager.LoadScene(mainGameScene);
     }
-    public void ResumeGame()
-    {
 
-    }
     public void ExitGame()
     {
         Application.Quit();
     }
+
     public void GameCredits()
     {
         SceneManager.LoadScene(creditsScene);
