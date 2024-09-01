@@ -4,6 +4,9 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
+    // Object to steal
+    [SerializeField] private Interactable MacGuffin;
+    [SerializeField] private Interactable EscapeObject;
     [SerializeField] private float DetectionSpeed = 0.1f;
     private float CurrentDetectionLevel = 0;
     [HideInInspector] public UnityEvent<float> DetectionLevelChanged = new UnityEvent<float>();
@@ -13,6 +16,10 @@ public class GameController : MonoBehaviour
         {
             enemyVision.PlayerDetected.AddListener(OnPlayerDetected);
         }
+        MacGuffin.InteractionEvent.AddListener(OnMacGuffinInteract);
+        EscapeObject.InteractionEvent.AddListener(OnEscapeObjectInteract);
+
+        EscapeObject.isAvailable = false;
     }
 
     void OnPlayerDetected(float distance)
@@ -29,5 +36,22 @@ public class GameController : MonoBehaviour
     void GameOver()
     {
         SceneManager.LoadScene("GameOver");
+    }
+
+    void Win()
+    {
+        SceneManager.LoadScene("Win");
+    }
+
+    void OnMacGuffinInteract()
+    {
+        MacGuffin.isAvailable = false;
+        EscapeObject.isAvailable = true;
+        MacGuffin.gameObject.SetActive(false);
+    }
+
+    void OnEscapeObjectInteract()
+    {
+        Win();
     }
 }
