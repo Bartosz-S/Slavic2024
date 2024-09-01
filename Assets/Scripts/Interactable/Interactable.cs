@@ -8,7 +8,7 @@ public class Interactable : MonoBehaviour
     [SerializeField] public bool isAvailable = true;
     LayerMask PlayerMask;
 
-    [SerializeField] private UnityEvent InteractionEvent;
+    [SerializeField] public UnityEvent InteractionEvent;
     [SerializeField] private UnityEvent OnPlayerLeave = new UnityEvent();
     [SerializeField] private UnityEvent OnPlayerEnter = new UnityEvent();
 
