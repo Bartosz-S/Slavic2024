@@ -12,6 +12,11 @@ public class Interactable : MonoBehaviour
     [SerializeField] private UnityEvent OnPlayerLeave = new UnityEvent();
     [SerializeField] private UnityEvent OnPlayerEnter = new UnityEvent();
 
+    public void SetAvailable(bool available)
+    {
+        isAvailable = available;
+    }
+
     private void Start()
     {
         PlayerMask = LayerMask.GetMask("Player");
@@ -19,6 +24,9 @@ public class Interactable : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        if (!isAvailable)
+            return;
+
         if((PlayerMask & (1 << other.gameObject.layer)) != 0)
         {
             other.gameObject.GetComponent<PlayerInputManager>().PlayerInteract.AddListener(OnInteracting);

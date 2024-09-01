@@ -354,7 +354,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 39485b6b905ce124895616687070764b, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 961bcf0400ddd3242a90e2e8eec72046, type: 2}
   m_BuildHeightMesh: 0
 --- !u!4 &294206754
 Transform:
@@ -1027,6 +1027,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestCamera
       objectReference: {fileID: 0}
+    - target: {fileID: 4306721843691509253, guid: 027d5cca4f470d840b084f54d7a08920,
+        type: 3}
+      propertyPath: Active
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6193435024662763567, guid: 027d5cca4f470d840b084f54d7a08920,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1633,6 +1638,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2499453689854891431, guid: 9c440ae80aff340439cc8510609724aa,
+        type: 3}
+      propertyPath: Active
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2992285663872403796, guid: 9c440ae80aff340439cc8510609724aa,
         type: 3}

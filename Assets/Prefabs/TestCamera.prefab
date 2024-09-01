@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 4306721843691509253}
   - component: {fileID: 2644858481861202841}
   - component: {fileID: 3115005121338426939}
+  - component: {fileID: 4756150598977113091}
+  - component: {fileID: 7930386221558139371}
   m_Layer: 0
   m_Name: TestCamera
   m_TagString: Untagged
@@ -59,6 +61,7 @@ MonoBehaviour:
   PlayerDetected:
     m_PersistentCalls:
       m_Calls: []
+  Active: 1
   PlayerLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -144,6 +147,109 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4756150598977113091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4227972972502312370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61360ab46c228b84c837c2dd6fc8d8db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAvailable: 1
+  InteractionEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4756150598977113091}
+        m_TargetAssemblyTypeName: Interactable, Assembly-CSharp
+        m_MethodName: SetAvailable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4306721843691509253}
+        m_TargetAssemblyTypeName: EnemyVision, Assembly-CSharp
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2644858481861202841}
+        m_TargetAssemblyTypeName: CameraMovementController, Assembly-CSharp
+        m_MethodName: SetStop
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  OnPlayerLeave:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5514080313066510237}
+        m_TargetAssemblyTypeName: ColorManager, Assembly-CSharp
+        m_MethodName: ChangeColor
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnPlayerEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5514080313066510237}
+        m_TargetAssemblyTypeName: ColorManager, Assembly-CSharp
+        m_MethodName: ChangeColor
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+--- !u!135 &7930386221558139371
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4227972972502312370}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7292388816604564249
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,6 +261,7 @@ GameObject:
   - component: {fileID: 1098431949765685835}
   - component: {fileID: 2618299393978675517}
   - component: {fileID: 5884648497199133621}
+  - component: {fileID: 5514080313066510237}
   m_Layer: 0
   m_Name: Mesh
   m_TagString: Untagged
@@ -205,7 +312,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 6f5efce39a914ec60b56c0c9a22de3cb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -227,3 +334,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5514080313066510237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7292388816604564249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 861b1508cfd78054bbcd5d21983fa396, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 66f09c45521b0744aa4e5e9ece8e89b3, type: 2}

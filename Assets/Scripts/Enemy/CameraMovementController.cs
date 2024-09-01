@@ -9,6 +9,7 @@ public class CameraMovementController : MonoBehaviour
     [SerializeField] private float MaxCameraAngle;
 
     private Quaternion StartRotation;
+    private bool Stop = false;
 
     private void Start()
     {
@@ -16,6 +17,14 @@ public class CameraMovementController : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        if (Stop)
+            return;
+
         gameObject.transform.rotation = Quaternion.AngleAxis(MaxCameraAngle * RotationCurve.Evaluate(Time.fixedTime), Vector3.up) * StartRotation;
+    }
+
+    public void SetStop(bool stop)
+    {
+        Stop = stop;
     }
 }
