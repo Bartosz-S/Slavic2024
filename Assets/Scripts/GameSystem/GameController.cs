@@ -47,6 +47,7 @@ public class GameController : MonoBehaviour
     {
         MacGuffin.isAvailable = false;
         EscapeObject.isAvailable = true;
+        MacGuffin.gameObject.SetActive(false);
     }
 
     void OnEscapeObjectInteract()
