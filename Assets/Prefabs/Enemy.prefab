@@ -280,11 +280,12 @@ MonoBehaviour:
   PlayerDetected:
     m_PersistentCalls:
       m_Calls: []
+  Active: 1
   PlayerLayer:
     serializedVersion: 2
     m_Bits: 64
   FOVAngle: 90
-  FOVDistance: 5
+  FOVDistance: 10
   NumberOfTraces: 20
 --- !u!1001 &1131477354048128919
 PrefabInstance:

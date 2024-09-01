@@ -491,7 +491,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56b8c99a880c4c458ca59b996fb0dc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainGameScene: BartokTest
+  mainGameScene: Level
   creditsScene: Credits
 --- !u!1 &665315519
 GameObject:
