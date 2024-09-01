@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class EnemyVision : MonoBehaviour
 {
     [SerializeField] public UnityEvent PlayerDetected;
+    [SerializeField] private bool Active = true;
 
     [SerializeField] private LayerMask PlayerLayer;
     [SerializeField] private float FOVAngle = 90;
@@ -15,6 +16,16 @@ public class EnemyVision : MonoBehaviour
     private Mesh VisionMesh;
     private Vector3[] VisionMeshVertices;
     private int[] VisionMeshTriangles;
+
+    public bool IsActive()
+    {
+        return Active;
+    }
+
+    public void SetActive(bool newActive)
+    {
+        Active = newActive;
+    }
 
     private void Awake()
     {
@@ -37,6 +48,12 @@ public class EnemyVision : MonoBehaviour
 
         for (int i = 0; i < NumberOfTraces; i++)
         {
+            if(!Active)
+            {
+                VisionMeshVertices[i] = gameObject.transform.InverseTransformPoint(trace_start);
+                continue;
+            }
+
             trace_end = trace_start + direction * FOVDistance;
 
             if (Physics.Linecast(trace_start, trace_end, out hit_info))

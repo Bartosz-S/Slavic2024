@@ -37,7 +37,6 @@ public class PlayerInputManager : MonoBehaviour
     }
     private void OnInteraction(InputAction.CallbackContext context)
     {
-        Debug.Log("Looking for something!");
         PlayerInteract.Invoke();
     }
 
